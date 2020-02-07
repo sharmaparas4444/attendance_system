@@ -1,0 +1,30 @@
+You are logged in as Admin
+<b>
+    <%= current_employee.email %></b>
+<%= link_to('Logout', destroy_employee_session_path, method: :delete) %>
+<table style="width:100%">
+    <tr>
+        <td><b>Email</b></td>
+        <td><b>Status</b></td>
+        <!-- <td><b>Check In</b></td> -->
+    </tr>
+    <% @employees.each do |employee|%>
+    <tr>
+        <td>
+            <%= employee.email%>
+        </td>
+        <td>
+            <% if employee.checked_in? %>
+            Present
+            <% else %>
+            Absent
+            <% end %>
+        </td>
+        <!-- <td> -->
+        <%# if employee.check_ins.present? %>
+        <%#= employee.check_ins.last.created_at > employee.check_outs.last.created_at ? employee.check_ins.last.created_at.strftime("%d %B %Y , %l:%M %p") : 'Not Came back' %>
+        <%# end %>
+        <!-- </td> -->
+    </tr>
+    <% end %>
+</table>

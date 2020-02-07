@@ -1,0 +1,3 @@
+class CheckIn < AttendanceTime
+	
+end
