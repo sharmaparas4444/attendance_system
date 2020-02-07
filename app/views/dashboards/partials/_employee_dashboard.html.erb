@@ -1,0 +1,9 @@
+<% if current_employee.checked_in? %>
+<%= form_with(url: dashboards_check_out_path, method: "post") do |form| %>
+<%= form.submit 'Check Out'%>
+<% end %>
+<% else %>
+<%= form_with(url: dashboards_check_in_path, method: "post") do |form| %>
+<%= form.submit 'Check In'%>
+<% end %>
+<% end %>

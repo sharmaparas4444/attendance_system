@@ -7,14 +7,15 @@ class Employee < ApplicationRecord
     has_many :check_ins
     has_many :check_outs
     has_many :attendance_times
+    scope :get_record_with_type, -> (class_type) { where("type = ?", class_type) }
     
-    CHECKED_TYPE_VALUE = {
+    STATUSES = {
       0 => "not_available",
       1 => "available"
     }
     
     def checked_in?
-      CHECKED_TYPE_VALUE[self.presence_status] == "available"
+      STATUSES[self.presence_status] == "available"
     end
 
 end
