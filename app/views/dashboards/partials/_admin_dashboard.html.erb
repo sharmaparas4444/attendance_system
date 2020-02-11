@@ -4,23 +4,5 @@
         <td><b>Status</b></td>
         <!-- <td><b>Check In</b></td> -->
     </tr>
-    <% @employees.each do |employee|%>
-    <tr>
-        <td>
-            <%= employee.email%>
-        </td>
-        <td>
-            <% if employee.checked_in? %>
-            Present
-            <% else %>
-            Absent
-            <% end %>
-        </td>
-        <!-- <td> -->
-        <%# if employee.check_ins.present? %>
-        <%#= employee.check_ins.last.created_at > employee.check_outs.last.created_at ? employee.check_ins.last.created_at.strftime("%d %B %Y , %l:%M %p") : 'Not Came back' %>
-        <%# end %>
-        <!-- </td> -->
-    </tr>
-    <% end %>
+    <%= render get_employee_list %>
 </table>
