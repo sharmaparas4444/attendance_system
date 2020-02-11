@@ -28,11 +28,11 @@ class Employee < ApplicationRecord
   end
 
   def check_in!
-    self.update_column(:presence_status => true)
+    self.update_column(:presence_status, 1)
   end
 
   def check_out!
-     self.update_column(:presence_status => false)
+     self.update_column(:presence_status, 0)
   end
 
 end

@@ -1,8 +1,8 @@
-<tr>
-    <td>
+<tr data-id="<%= employee.id %>">
+    <td class="user_email">
         <%=  employee.email %>
     </td>
-    <td>
+    <td class="user_attendance_status">
     	<%= t("generic.#{employee.get_presence_status}") %>
     </td>
 </tr>

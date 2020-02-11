@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	post '/dashboards/check_out', :to => 'dashboards#check_out'
 	resources :admins
 	resources :dashboards
+	mount ActionCable.server => '/cable'
 
 # devise_scope :users
 
