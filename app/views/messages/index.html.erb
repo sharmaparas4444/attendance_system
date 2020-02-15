@@ -1,0 +1,9 @@
+<%#= form_with model: @user do |form| %>
+<%#= form.text_field :email %>
+<%#= form.submit %>
+<%# end %>
+<% if current_employee.type == "Admin"%>
+	<%= render "messages/partials/admin_messages" %>
+<% else %>
+	<%= render "messages/partials/employee_messages" %>
+<% end%>

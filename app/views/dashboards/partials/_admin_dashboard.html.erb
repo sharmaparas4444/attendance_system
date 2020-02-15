@@ -1,8 +1,10 @@
+<%= action_cable_meta_tag %>
 <table style="width:100%">
     <tr>
-        <td><b>Email</b></td>
-        <td><b>Status</b></td>
-        <!-- <td><b>Check In</b></td> -->
+        <td><b>
+                <%= t("generic.Email") %> </b></td>
+        <td><b>
+                <%= t("generic.Status") %> </b></td>
     </tr>
     <%= render get_employee_list %>
 </table>

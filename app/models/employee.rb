@@ -7,6 +7,8 @@ class Employee < ApplicationRecord
   has_many :check_ins
   has_many :check_outs
   has_many :attendance_times
+  has_many :messages, class_name: "Message", foreign_key: "recipient_id"
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
 
   scope :except_admins, -> { where.not(type: "Admin") }
   
@@ -34,5 +36,4 @@ class Employee < ApplicationRecord
   def check_out!
      self.update_column(:presence_status, 0)
   end
-
 end

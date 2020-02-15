@@ -10,7 +10,6 @@ consumer.subscriptions.create("AttendanceTimeChannel", {
   },
 
   received(data) {
-  	debugger
   	return $("tr[data-id='" + data.employee_id + "']").find('.user_attendance_status').text(data.status)
     // Called when there's incoming data on the websocket for this channel
   }

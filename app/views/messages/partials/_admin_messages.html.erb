@@ -1,0 +1,16 @@
+<h3>Employee Messages:-</h3>
+<% get_employee_list.each do  |emp| %>
+	<% if emp.messages.present? or emp.sent_messages.present? %>
+		<h4>
+		    <%= emp.email %>
+		</h4>
+		<% get_conversation_between(emp,current_employee).each do  |msg| %>
+			<%= get_email_using_id(msg.sender.id) %>: <%= msg.content %><br>
+		<% end %>
+		<%= form_with(model: @message, method: "post") do |form| %>
+			<%= form.text_field :content %>
+			<%= form.hidden_field :recipient_id, value: emp.id %>
+			<%= form.submit t("generic.Send_Message") %>
+		<% end %>
+	<% end %>
+<% end %>

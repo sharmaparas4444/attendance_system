@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>EmployeeAttendanceTimeDetail</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
+    <% if current_employee.present? %>
+    You are logged in as
+    <%= current_employee.class.name %><b>
+        <%= current_employee.email %></b>
+    <%= link_to('Logout', destroy_employee_session_path, method: :delete) %>
+    <br><br>
+    <% end %>
     <%= yield %>
-  </body>
+</body>
+
 </html>

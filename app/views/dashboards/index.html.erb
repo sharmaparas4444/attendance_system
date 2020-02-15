@@ -1,10 +1,6 @@
-You are logged in as <%= current_employee.class.name %><b>
-    <%= current_employee.email %></b>
-<%= link_to('Logout', destroy_employee_session_path, method: :delete) %>
-<br><br>
-
 <% if current_employee.class.name == 'Admin'%>
 <%= render "dashboards/partials/admin_dashboard" %>
 <% else %>
 <%= render "dashboards/partials/employee_dashboard" %>
 <% end %>
+<%= link_to("Messages", messages_path)%>
